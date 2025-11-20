@@ -22,9 +22,8 @@ func main() {
 
 	validators.ValidateCurrency(baseCurrency, convertCurrency)
 
-	value, _ := strconv.ParseFloat(amount, 64)
+	numAmount, _ := strconv.ParseFloat(amount, 64)
+	result := handlers.CurrencyHandler(baseCurrency, convertCurrency, numAmount)
 
-	result := handlers.CurrencyHandler(baseCurrency, convertCurrency, value)
-
-	tui.ShowResult(result)
+	tui.ShowResult(baseCurrency, convertCurrency, numAmount, result)
 }
