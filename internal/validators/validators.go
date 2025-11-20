@@ -22,8 +22,8 @@ func ValidateAmount(amount string) error {
 		return errors.New("invalid number")
 	}
 
-	if value < 0 {
-		return errors.New("currency must be positive")
+	if value <= 0 {
+		return errors.New("currency must be greater than 0")
 	}
 
 	return nil

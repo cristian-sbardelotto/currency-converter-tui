@@ -7,3 +7,10 @@ type ExchangeRatesResponse struct {
 	Base       string             `json:"base"`
 	Rates      map[string]float64 `json:"rates"`
 }
+
+type CurrencyConversion struct {
+	BaseCurrency    string
+	ConvertCurrency string
+	Amount          float64
+	Rates           map[string]float64
+}

@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"currency-converter/internal/model"
+	"currency-converter/internal/services"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -28,5 +29,13 @@ func CurrencyHandler(baseCurrency, convertCurrency string, amount float64) float
 		log.Fatal("Error decoding response: ", err)
 	}
 
-	return 1.5
+	currencyData := model.CurrencyConversion{
+		BaseCurrency:    baseCurrency,
+		ConvertCurrency: convertCurrency,
+		Amount:          amount,
+		Rates:           data.Rates,
+	}
+
+	result := services.CalculateCurrency(currencyData)
+	return result
 }

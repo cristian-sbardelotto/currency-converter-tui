@@ -1,7 +1,9 @@
 package tui
 
 import (
+	"currency-converter/internal/utils"
 	"currency-converter/internal/validators"
+	"fmt"
 	"log"
 
 	"github.com/charmbracelet/huh"
@@ -21,8 +23,8 @@ func ShowTitle() {
 
 func Init(baseCurrency, convertCurrency, amount *string) {
 	currencyOptions := []huh.Option[string]{
-		huh.NewOption("$ USD (American Dollar)", "usd"),
-		huh.NewOption("R$ BRL (Brazilian Real)", "brl"),
+		huh.NewOption("$ USD (American Dollar)", "USD"),
+		huh.NewOption("R$ BRL (Brazilian Real)", "BRL"),
 	}
 
 	form := huh.NewForm(
@@ -51,6 +53,7 @@ func Init(baseCurrency, convertCurrency, amount *string) {
 	}
 }
 
-func ShowResult(amount float64) {
-	panic("not implemented")
+func ShowResult(result float64) {
+	formatted := utils.FormatFloat(result)
+	fmt.Printf("The result is %s\n", formatted)
 }
