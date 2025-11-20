@@ -1,2 +1,3 @@
 - usar TUI do huh
 - usar api de converter currency (openexchangerates.org)
+  ![alt text](example.png)
