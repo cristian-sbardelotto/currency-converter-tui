@@ -2,6 +2,7 @@ package main
 
 import (
 	"currency-converter/internal/handlers"
+	"currency-converter/internal/services"
 	"currency-converter/internal/tui"
 	"currency-converter/internal/validators"
 	"strconv"
@@ -14,6 +15,8 @@ var (
 )
 
 func main() {
+	services.LoadEnv()
+
 	tui.ShowTitle()
 	tui.Init(&baseCurrency, &convertCurrency, &amount)
 
